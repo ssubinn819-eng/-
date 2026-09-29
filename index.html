@@ -1,0 +1,2235 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>데이트 장인 언니의 오늘의 데이트 장소 추천 💕</title>
+  <meta name="description" content="오늘의 날씨, 온도, 코디, 원하는 분위기만 알려줘! 장기연애 데이트 장인 언니가 찰떡같은 데이트 코스를 콕 집어줄게!">
+  <meta name="keywords" content="데이트추천, 데이트코스, 서울데이트, 실내데이트, 야외데이트, 데이트장소, 꿀팁, 연애장인언니">
+  <meta name="theme-color" content="#FF5E7E">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💅</text></svg>">
+
+  <!-- Open Graph / KakaoTalk / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="데이트 장인 언니의 오늘의 데이트 장소 추천 💕">
+  <meta property="og:description" content="오늘 날씨, 옷차림, 기분만 말해봐! 장기연애 8년차 언니가 실패 없는 100% 성공 코스를 콕 찍어줄게!">
+  <meta property="og:image" content="./og-image.jpg">
+  <meta property="og:site_name" content="데이트 장인 언니 Pick">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="데이트 장인 언니의 오늘의 데이트 장소 추천 💕">
+  <meta name="twitter:description" content="오늘 날씨, 온도, 코디, 분위기에 딱 맞는 실패 없는 데이트 코스 추천!">
+  <meta name="twitter:image" content="./og-image.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800&family=Gaegu:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #FF5E7E;
+      --primary-hover: #E84566;
+      --primary-light: #FFEBF0;
+      --primary-soft: #FFF2F5;
+      --accent: #FFAAA6;
+      --bg-cream: #FCF8F5;
+      --card-bg: #FFFFFF;
+      --text-main: #2D2528;
+      --text-sub: #6E6165;
+      --text-muted: #A3969A;
+      --border-color: #F0E3E6;
+      --shadow-sm: 0 4px 12px rgba(255, 94, 126, 0.08);
+      --shadow-md: 0 10px 25px rgba(255, 94, 126, 0.12);
+      --shadow-lg: 0 16px 36px rgba(240, 100, 130, 0.16);
+      --radius-sm: 12px;
+      --radius-md: 20px;
+      --radius-lg: 28px;
+      --font-body: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+      --font-hand: 'Gaegu', cursive, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--bg-cream);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-image: 
+        radial-gradient(#FFD6DE 0.8px, transparent 0.8px), 
+        radial-gradient(#FFE6D8 0.8px, #FCF8F5 0.8px);
+      background-size: 32px 32px;
+      background-position: 0 0, 16px 16px;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Ambient Background Glow */
+    .bg-glow-1 {
+      position: fixed;
+      top: -100px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 350px;
+      background: radial-gradient(circle, rgba(255, 182, 193, 0.4) 0%, rgba(255, 240, 243, 0) 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .bg-glow-2 {
+      position: fixed;
+      bottom: -150px;
+      right: -100px;
+      width: 450px;
+      height: 450px;
+      background: radial-gradient(circle, rgba(255, 218, 185, 0.35) 0%, rgba(252, 248, 245, 0) 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Screen Mode Switcher (Mobile Mockup vs Expanded View) */
+    .view-control-bar {
+      width: 100%;
+      max-width: 520px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 20px 4px;
+      z-index: 10;
+    }
+
+    .brand-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--primary);
+      background: #FFF;
+      padding: 6px 12px;
+      border-radius: 20px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-color);
+    }
+
+    .view-toggle-btn {
+      background: #FFF;
+      border: 1px solid var(--border-color);
+      color: var(--text-sub);
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.2s ease;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .view-toggle-btn:hover {
+      background: var(--primary-soft);
+      color: var(--primary);
+      border-color: var(--primary);
+    }
+
+    /* Main Container */
+    #appContainer {
+      width: 100%;
+      max-width: 500px;
+      min-height: calc(100vh - 60px);
+      display: flex;
+      flex-direction: column;
+      padding: 12px 18px 40px;
+      position: relative;
+      z-index: 5;
+      transition: max-width 0.3s ease;
+    }
+
+    #appContainer.wide-mode {
+      max-width: 780px;
+    }
+
+    /* Screen Sections */
+    .screen {
+      display: none;
+      animation: fadeInSlideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      width: 100%;
+    }
+
+    .screen.active {
+      display: block;
+    }
+
+    @keyframes fadeInSlideUp {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Card Component */
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      padding: 24px 22px;
+      box-shadow: var(--shadow-md);
+      border: 1px solid rgba(255, 214, 222, 0.6);
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    /* Intro Screen */
+    .intro-header {
+      text-align: center;
+      margin-top: 20px;
+      margin-bottom: 26px;
+    }
+
+    .unnie-avatar-wrap {
+      position: relative;
+      width: 104px;
+      height: 104px;
+      margin: 0 auto 16px;
+    }
+
+    .unnie-avatar {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #FFE4E6 0%, #FFCAD4 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 54px;
+      border: 4px solid #FFF;
+      box-shadow: 0 8px 20px rgba(255, 94, 126, 0.22);
+      animation: gentleFloat 3s ease-in-out infinite;
+    }
+
+    @keyframes gentleFloat {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-6px) rotate(2deg); }
+    }
+
+    .unnie-status-badge {
+      position: absolute;
+      bottom: -2px;
+      right: -4px;
+      background: #FF5E7E;
+      color: #FFF;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 3px 9px;
+      border-radius: 12px;
+      border: 2px solid #FFF;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .main-title {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--text-main);
+      line-height: 1.35;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+    }
+
+    .main-title .highlight {
+      color: var(--primary);
+      position: relative;
+      display: inline-block;
+    }
+
+    .main-title .highlight::after {
+      content: '';
+      position: absolute;
+      bottom: 2px;
+      left: 0;
+      width: 100%;
+      height: 8px;
+      background: rgba(255, 94, 126, 0.18);
+      border-radius: 4px;
+      z-index: -1;
+    }
+
+    .subtitle-speech {
+      background: #FFF;
+      border: 2px dashed #FFCCD5;
+      border-radius: var(--radius-md);
+      padding: 16px 18px;
+      font-size: 14.5px;
+      color: var(--text-sub);
+      line-height: 1.6;
+      margin-bottom: 24px;
+      text-align: center;
+      position: relative;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .subtitle-speech strong {
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .feature-chips {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 26px;
+    }
+
+    .feature-chip {
+      background: #FFF;
+      padding: 14px 10px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s ease;
+    }
+
+    .feature-chip:hover {
+      transform: translateY(-2px);
+    }
+
+    .feature-chip .icon {
+      font-size: 24px;
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .feature-chip .label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-main);
+      display: block;
+    }
+
+    .feature-chip .desc {
+      font-size: 10.5px;
+      color: var(--text-muted);
+      margin-top: 2px;
+      display: block;
+    }
+
+    /* Buttons */
+    .btn-cta {
+      width: 100%;
+      background: linear-gradient(135deg, #FF6B8B 0%, #FF4565 100%);
+      color: white;
+      border: none;
+      padding: 18px 24px;
+      font-size: 18px;
+      font-weight: 700;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 10px 24px rgba(255, 69, 101, 0.38);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-cta::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        60deg,
+        rgba(255,255,255,0) 20%,
+        rgba(255,255,255,0.25) 50%,
+        rgba(255,255,255,0) 80%
+      );
+      transform: rotate(30deg);
+      animation: buttonShine 4s infinite linear;
+    }
+
+    @keyframes buttonShine {
+      0% { transform: translateX(-100%) rotate(30deg); }
+      20%, 100% { transform: translateX(100%) rotate(30deg); }
+    }
+
+    .btn-cta:hover {
+      transform: translateY(-3px) scale(1.01);
+      box-shadow: 0 14px 28px rgba(255, 69, 101, 0.45);
+    }
+
+    .btn-cta:active {
+      transform: translateY(1px) scale(0.99);
+    }
+
+    /* Input Screen Styles */
+    .input-screen-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .back-btn {
+      background: #FFF;
+      border: 1px solid var(--border-color);
+      color: var(--text-sub);
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.2s ease;
+    }
+
+    .back-btn:hover {
+      background: var(--primary-soft);
+      color: var(--primary);
+    }
+
+    .step-title-wrap {
+      flex: 1;
+      text-align: center;
+    }
+
+    .step-title-wrap h2 {
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+
+    .step-title-wrap p {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* Section Cards */
+    .section-box {
+      background: #FFF;
+      border-radius: var(--radius-lg);
+      padding: 20px 18px;
+      margin-bottom: 18px;
+      box-shadow: var(--shadow-sm);
+      border: 1.5px solid #F5EAEB;
+      transition: all 0.25s ease;
+    }
+
+    .section-box.has-error {
+      border-color: #FF4757;
+      animation: shake 0.4s ease;
+      background: #FFF8F8;
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      20%, 60% { transform: translateX(-6px); }
+      40%, 80% { transform: translateX(6px); }
+    }
+
+    .section-label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
+
+    .section-label-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .step-num {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: white;
+      font-size: 12px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .section-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .section-badge {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--primary);
+      background: var(--primary-soft);
+      padding: 3px 10px;
+      border-radius: 12px;
+    }
+
+    /* Option Grid (Weather, Outfit, Vibe) */
+    .option-grid {
+      display: grid;
+      gap: 10px;
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .choice-card {
+      background: #FAFAFA;
+      border: 1.5px solid #EFEFEF;
+      border-radius: var(--radius-md);
+      padding: 14px 10px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.22s cubic-bezier(0.2, 0.8, 0.4, 1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      position: relative;
+    }
+
+    .choice-card:hover {
+      background: #FFF5F7;
+      border-color: #FFC0CB;
+      transform: translateY(-2px);
+    }
+
+    .choice-card.selected {
+      background: #FFF0F3;
+      border-color: var(--primary);
+      box-shadow: 0 4px 14px rgba(255, 94, 126, 0.22);
+      transform: translateY(-2px);
+    }
+
+    .choice-card.selected::after {
+      content: '✓';
+      position: absolute;
+      top: 6px;
+      right: 8px;
+      font-size: 11px;
+      font-weight: 900;
+      color: var(--primary);
+      background: #FFF;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 5px rgba(255, 94, 126, 0.25);
+    }
+
+    .choice-icon {
+      font-size: 28px;
+      line-height: 1;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.06));
+    }
+
+    .choice-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .choice-card.selected .choice-name {
+      color: var(--primary);
+    }
+
+    .choice-desc {
+      font-size: 11px;
+      color: var(--text-muted);
+      line-height: 1.3;
+      word-break: keep-all;
+    }
+
+    /* Temperature Slider Customization */
+    .temp-display-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      padding: 0 4px;
+    }
+
+    .temp-value-box {
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+    }
+
+    .temp-number {
+      font-size: 38px;
+      font-weight: 900;
+      color: var(--primary);
+      letter-spacing: -1px;
+      line-height: 1;
+    }
+
+    .temp-unit {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .temp-feel-pill {
+      background: #FFF0F3;
+      color: var(--primary);
+      font-size: 12.5px;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 16px;
+      border: 1px solid #FFD6DE;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.2s ease;
+    }
+
+    .slider-track-wrap {
+      padding: 10px 4px 4px;
+    }
+
+    .custom-slider {
+      width: 100%;
+      -webkit-appearance: none;
+      height: 10px;
+      border-radius: 8px;
+      background: linear-gradient(90deg, #70A1FF 0%, #7BED9F 35%, #FFA502 70%, #FF4757 100%);
+      outline: none;
+      cursor: pointer;
+    }
+
+    .custom-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #FFFFFF;
+      border: 3.5px solid var(--primary);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.22);
+      cursor: grab;
+      transition: transform 0.1s, box-shadow 0.1s;
+    }
+
+    .custom-slider::-webkit-slider-thumb:active {
+      transform: scale(1.22);
+      cursor: grabbing;
+      box-shadow: 0 6px 14px rgba(255, 94, 126, 0.4);
+    }
+
+    .custom-slider::-moz-range-thumb {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #FFFFFF;
+      border: 3.5px solid var(--primary);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.22);
+      cursor: grab;
+    }
+
+    .slider-labels {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 8px;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-muted);
+      padding: 0 2px;
+    }
+
+    .temp-unnie-tip {
+      margin-top: 14px;
+      background: #FFFDF9;
+      border: 1px dashed #FFE4B5;
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 12.5px;
+      color: #7A5835;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Validation Toast */
+    .validation-toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: #2D2528;
+      color: #FFF;
+      padding: 13px 22px;
+      border-radius: 30px;
+      font-size: 13.5px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+      z-index: 1000;
+      transition: transform 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+      pointer-events: none;
+    }
+
+    .validation-toast.show {
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* Result Screen Styles */
+    .result-condition-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 16px;
+      justify-content: center;
+    }
+
+    .condition-pill {
+      background: #FFF;
+      border: 1px solid #FFE0E6;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-sub);
+      padding: 5px 12px;
+      border-radius: 16px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* Unnie's Advice Speech Card */
+    .unnie-comment-card {
+      background: linear-gradient(135deg, #FFF9FA 0%, #FFF2F4 100%);
+      border: 2px solid #FFD1DC;
+      border-radius: var(--radius-lg);
+      padding: 22px 20px;
+      position: relative;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .unnie-profile-bar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .unnie-mini-avatar {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, #FFE4E6 0%, #FFCAD4 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      border: 2.5px solid #FFF;
+      box-shadow: 0 4px 10px rgba(255, 94, 126, 0.2);
+    }
+
+    .unnie-name-tag {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .unnie-name {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+
+    .unnie-sub {
+      font-size: 11.5px;
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .unnie-speech-bubble {
+      font-size: 15px;
+      line-height: 1.68;
+      color: #38242A;
+      font-weight: 500;
+      background: #FFFFFF;
+      padding: 16px 18px;
+      border-radius: 18px;
+      border-top-left-radius: 4px;
+      box-shadow: 0 4px 14px rgba(255, 117, 143, 0.08);
+      position: relative;
+    }
+
+    .unnie-speech-bubble strong {
+      color: var(--primary);
+      font-weight: 800;
+    }
+
+    /* Recommendation Spot Box */
+    .spot-card {
+      background: #FFF;
+      border-radius: var(--radius-lg);
+      border: 1px solid #FFE4E9;
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+
+    .spot-hero-header {
+      background: linear-gradient(135deg, #FFF0F3 0%, #FFE5EC 100%);
+      padding: 22px 20px 18px;
+      border-bottom: 1px solid #FFD6DE;
+      position: relative;
+    }
+
+    .spot-match-badges {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+
+    .match-pill {
+      font-size: 11px;
+      font-weight: 800;
+      padding: 4px 9px;
+      border-radius: 12px;
+      background: #FFF;
+      color: var(--primary);
+      box-shadow: 0 2px 6px rgba(255, 94, 126, 0.12);
+    }
+
+    .match-pill.area {
+      background: var(--primary);
+      color: #FFF;
+    }
+
+    .spot-title {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--text-main);
+      line-height: 1.3;
+      margin-bottom: 6px;
+    }
+
+    .spot-one-liner {
+      font-size: 13.5px;
+      color: var(--text-sub);
+      font-weight: 500;
+    }
+
+    /* Course Timeline */
+    .course-timeline-wrap {
+      padding: 22px 20px;
+    }
+
+    .timeline-heading {
+      font-size: 14.5px;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .timeline-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      position: relative;
+      padding-left: 28px;
+    }
+
+    .timeline-steps::before {
+      content: '';
+      position: absolute;
+      left: 10px;
+      top: 10px;
+      bottom: 20px;
+      width: 2px;
+      background: #FFD1DC;
+    }
+
+    .timeline-item {
+      position: relative;
+    }
+
+    .timeline-node {
+      position: absolute;
+      left: -28px;
+      top: 2px;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #FFF;
+      border: 3px solid var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--primary);
+      box-shadow: 0 2px 6px rgba(255, 94, 126, 0.2);
+    }
+
+    .timeline-badge {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--primary);
+      background: var(--primary-soft);
+      padding: 2px 8px;
+      border-radius: 8px;
+      display: inline-block;
+      margin-bottom: 4px;
+    }
+
+    .timeline-place {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 3px;
+    }
+
+    .timeline-detail {
+      font-size: 12.5px;
+      color: var(--text-sub);
+      line-height: 1.45;
+    }
+
+    /* Reason Box */
+    .reason-box {
+      margin: 0 20px 20px;
+      background: #FFF9F2;
+      border: 1.5px solid #FFE4C7;
+      border-radius: var(--radius-md);
+      padding: 16px 18px;
+    }
+
+    .reason-title {
+      font-size: 13.5px;
+      font-weight: 800;
+      color: #9C5400;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .reason-desc {
+      font-size: 13px;
+      color: #633B0B;
+      line-height: 1.55;
+      font-weight: 500;
+    }
+
+    /* Secret Tip Box */
+    .secret-tip-box {
+      margin: 0 20px 22px;
+      background: #F4F7FF;
+      border: 1.5px solid #D6E4FF;
+      border-radius: var(--radius-md);
+      padding: 16px 18px;
+    }
+
+    .tip-title {
+      font-size: 13.5px;
+      font-weight: 800;
+      color: #1D4ED8;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .tip-desc {
+      font-size: 12.5px;
+      color: #1E3A8A;
+      line-height: 1.5;
+    }
+
+    /* Action Buttons in Result Screen */
+    .result-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .btn-secondary {
+      width: 100%;
+      background: #FFF;
+      border: 2px solid var(--primary);
+      color: var(--primary);
+      padding: 16px 20px;
+      font-size: 16px;
+      font-weight: 700;
+      border-radius: 28px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-secondary:hover {
+      background: var(--primary-soft);
+      transform: translateY(-2px);
+    }
+
+    .btn-reroll {
+      background: linear-gradient(135deg, #FFAAA6 0%, #FF758F 100%);
+      color: #FFF;
+      border: none;
+      padding: 16px 20px;
+      font-size: 16px;
+      font-weight: 700;
+      border-radius: 28px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 8px 20px rgba(255, 117, 143, 0.3);
+      transition: all 0.2s ease;
+    }
+
+    .btn-reroll:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(255, 117, 143, 0.4);
+    }
+
+    .btn-copy {
+      background: #FFF;
+      border: 1px solid var(--border-color);
+      color: var(--text-sub);
+      padding: 12px 18px;
+      font-size: 13.5px;
+      font-weight: 600;
+      border-radius: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-copy:hover {
+      background: #F9F9F9;
+      color: var(--text-main);
+    }
+
+    /* Confetti Canvas */
+    #confettiCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      margin-top: 24px;
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 480px) {
+      #appContainer {
+        padding: 8px 14px 30px;
+      }
+      .main-title {
+        font-size: 23px;
+      }
+      .feature-chips {
+        gap: 6px;
+      }
+      .feature-chip {
+        padding: 10px 6px;
+      }
+      .choice-card {
+        padding: 12px 6px;
+      }
+      .choice-name {
+        font-size: 13px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Ambient background lighting -->
+  <div class="bg-glow-1"></div>
+  <div class="bg-glow-2"></div>
+
+  <!-- Confetti canvas for celebration effects -->
+  <canvas id="confettiCanvas"></canvas>
+
+  <!-- Top bar with view switcher -->
+  <div class="view-control-bar">
+    <div class="brand-badge">
+      <span>💅</span>
+      <span>데이트 장인 언니 Pick</span>
+    </div>
+    <button class="view-toggle-btn" id="viewToggleBtn" title="모바일 / PC 넓은 화면 전환">
+      <span id="viewToggleIcon">📱</span>
+      <span id="viewToggleText">모바일 뷰</span>
+    </button>
+  </div>
+
+  <main id="appContainer">
+    <!-- ============================================== -->
+    <!-- 1. 첫 화면 (INTRO SCREEN) -->
+    <!-- ============================================== -->
+    <section class="screen active" id="introScreen">
+      <div class="intro-header">
+        <div class="unnie-avatar-wrap">
+          <div class="unnie-avatar">💅</div>
+          <div class="unnie-status-badge">연애 8년차</div>
+        </div>
+
+        <h1 class="main-title">
+          오늘 데이트 어디 갈지 각 안 서?<br>
+          <span class="highlight">데이트 장인 언니</span>가 골라줄게!
+        </h1>
+      </div>
+
+      <div class="subtitle-speech">
+        "얘, 상대방한테 <strong>'아무거나 좋아~'</strong> 했다가 망한 적 있지?<br>
+        오늘 날씨랑 옷, 원하는 분위기만 딱 말해봐.<br>
+        언니의 실패 없는 빅데이터로 <strong>100% 성공 코스</strong> 짜줄 테니까! 💕"
+      </div>
+
+      <div class="feature-chips">
+        <div class="feature-chip">
+          <span class="icon">🎯</span>
+          <span class="label">실패율 0%</span>
+          <span class="desc">장기연애 빅데이터</span>
+        </div>
+        <div class="feature-chip">
+          <span class="icon">👠</span>
+          <span class="label">착장 맞춤</span>
+          <span class="desc">발 안 아픈 동선</span>
+        </div>
+        <div class="feature-chip">
+          <span class="icon">🍯</span>
+          <span class="label">언니의 꿀팁</span>
+          <span class="desc">인생샷 & 대화 치트키</span>
+        </div>
+      </div>
+
+      <button class="btn-cta" id="startBtn">
+        <span>오늘의 데이트 장소 고르기</span>
+        <span style="font-size: 20px;">✨</span>
+      </button>
+
+      <footer>
+        장기연애 8년차 언니의 실전 노하우 담뿍 💖<br>
+        실시간 날씨 & 기온 & 옷차림 맞춤형 추천 서비스
+      </footer>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- 2. 입력 화면 (INPUT SCREEN) -->
+    <!-- ============================================== -->
+    <section class="screen" id="inputScreen">
+      <div class="input-screen-header">
+        <button class="back-btn" id="inputBackBtn" title="첫 화면으로 돌아가기">←</button>
+        <div class="step-title-wrap">
+          <h2>오늘의 데이트 조건</h2>
+          <p>언니가 딱 맞는 코스 찾아줄게!</p>
+        </div>
+        <div style="width: 38px;"></div>
+      </div>
+
+      <!-- Step 1: 날씨 선택 -->
+      <div class="section-box" id="weatherSection">
+        <div class="section-label">
+          <div class="section-label-left">
+            <span class="step-num">1</span>
+            <span class="section-title">오늘의 날씨는 어때?</span>
+          </div>
+          <span class="section-badge" id="weatherBadge">선택 필수</span>
+        </div>
+        <div class="option-grid grid-3">
+          <div class="choice-card" data-group="weather" data-value="sunny">
+            <span class="choice-icon">☀️</span>
+            <span class="choice-name">맑음</span>
+            <span class="choice-desc">햇살 가득 야외각!</span>
+          </div>
+          <div class="choice-card" data-group="weather" data-value="cloudy">
+            <span class="choice-icon">☁️</span>
+            <span class="choice-name">흐림</span>
+            <span class="choice-desc">은은하고 운치 있음</span>
+          </div>
+          <div class="choice-card" data-group="weather" data-value="rainy">
+            <span class="choice-icon">🌧️</span>
+            <span class="choice-name">비 / 눈</span>
+            <span class="choice-desc">실내 데이트가 진리</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2: 온도 선택 -->
+      <div class="section-box" id="tempSection">
+        <div class="section-label">
+          <div class="section-label-left">
+            <span class="step-num">2</span>
+            <span class="section-title">오늘 기온은 몇 도야?</span>
+          </div>
+          <span class="section-badge">1도 단위 조절</span>
+        </div>
+
+        <div class="temp-display-wrap">
+          <div class="temp-value-box">
+            <span class="temp-number" id="tempNumber">20</span>
+            <span class="temp-unit">°C</span>
+          </div>
+          <div class="temp-feel-pill" id="tempFeelPill">
+            <span>🌸</span>
+            <span id="tempFeelText">선선하고 데이트하기 최적!</span>
+          </div>
+        </div>
+
+        <div class="slider-track-wrap">
+          <input type="range" min="-20" max="34" value="20" step="1" class="custom-slider" id="tempSlider">
+          <div class="slider-labels">
+            <span>-20°C (한파)</span>
+            <span>0°C</span>
+            <span>18°C</span>
+            <span>34°C (폭염)</span>
+          </div>
+        </div>
+
+        <div class="temp-unnie-tip" id="tempUnnieComment">
+          <span>💡</span>
+          <span id="tempTipText">봄/가을 냄새 솔솔~ 가벼운 외투 걸치고 걷기 딱 좋아!</span>
+        </div>
+      </div>
+
+      <!-- Step 3: 코디 선택 -->
+      <div class="section-box" id="outfitSection">
+        <div class="section-label">
+          <div class="section-label-left">
+            <span class="step-num">3</span>
+            <span class="section-title">오늘 어떻게 입었어? (코디)</span>
+          </div>
+          <span class="section-badge" id="outfitBadge">선택 필수</span>
+        </div>
+        <div class="option-grid grid-3">
+          <div class="choice-card" data-group="outfit" data-value="casual">
+            <span class="choice-icon">👟</span>
+            <span class="choice-name">편함 (안꾸)</span>
+            <span class="choice-desc">운동화, 츄리닝, 편한 룩</span>
+          </div>
+          <div class="choice-card" data-group="outfit" data-value="semi">
+            <span class="choice-icon">✨</span>
+            <span class="choice-name">꾸안꾸</span>
+            <span class="choice-desc">깔끔 캐주얼, 신경 쓴 데일리</span>
+          </div>
+          <div class="choice-card" data-group="outfit" data-value="glam">
+            <span class="choice-icon">💄</span>
+            <span class="choice-name">꾸꾸꾸</span>
+            <span class="choice-desc">풀메이크업, 셋업, 구두/힐</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 4: 원하는 분위기 선택 -->
+      <div class="section-box" id="vibeSection">
+        <div class="section-label">
+          <div class="section-label-left">
+            <span class="step-num">4</span>
+            <span class="section-title">오늘 원하는 분위기는?</span>
+          </div>
+          <span class="section-badge" id="vibeBadge">선택 필수</span>
+        </div>
+        <div class="option-grid grid-2">
+          <div class="choice-card" data-group="vibe" data-value="romantic">
+            <span class="choice-icon">🍷</span>
+            <span class="choice-name">감성, 로맨틱</span>
+            <span class="choice-desc">눈 마주치면 심쿵하는 와인바 & 은은한 조명</span>
+          </div>
+          <div class="choice-card" data-group="vibe" data-value="healing">
+            <span class="choice-icon">🌿</span>
+            <span class="choice-name">편안, 힐링</span>
+            <span class="choice-desc">말없이 있어도 아늑하고 편안한 공간</span>
+          </div>
+          <div class="choice-card" data-group="vibe" data-value="active">
+            <span class="choice-icon">🎢</span>
+            <span class="choice-name">활기, 재미</span>
+            <span class="choice-desc">빵빵 터지고 도파민 폭발하는 코스</span>
+          </div>
+          <div class="choice-card" data-group="vibe" data-value="special">
+            <span class="choice-icon">🎨</span>
+            <span class="choice-name">특별, 이색</span>
+            <span class="choice-desc">새로운 경험과 추억을 남기는 색다른 곳</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 결과 출력 버튼 -->
+      <button class="btn-cta" id="submitBtn">
+        <span>언니! 오늘의 데이트 장소 골라줘</span>
+        <span style="font-size: 20px;">💖</span>
+      </button>
+
+      <footer>
+        항목을 다 골라야 언니가 확실하게 점찍어줄 수 있어! 👆
+      </footer>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- 3. 결과 화면 (RESULT SCREEN) -->
+    <!-- ============================================== -->
+    <section class="screen" id="resultScreen">
+      <!-- 선택 조건 요약 뱃지들 -->
+      <div class="result-condition-bar" id="resultConditionsBar">
+        <!-- JS로 동적 삽입 -->
+      </div>
+
+      <!-- 언니의 추천 멘트 카드 -->
+      <div class="unnie-comment-card">
+        <div class="unnie-profile-bar">
+          <div class="unnie-mini-avatar">💅</div>
+          <div class="unnie-name-tag">
+            <span class="unnie-name">연애 장인 은채 언니</span>
+            <span class="unnie-sub">실패율 0% 데이트 코치</span>
+          </div>
+        </div>
+        <div class="unnie-speech-bubble" id="unnieSpeechText">
+          <!-- 동적 생성 멘트 -->
+        </div>
+      </div>
+
+      <!-- 추천 장소 & 상세 코스 카드 -->
+      <div class="spot-card">
+        <div class="spot-hero-header">
+          <div class="spot-match-badges" id="spotBadges">
+            <!-- 뱃지들 -->
+          </div>
+          <h2 class="spot-title" id="spotMainTitle">성수 아틀리에 & 감성 테라스 코스</h2>
+          <p class="spot-one-liner" id="spotOneLiner">실내와 야외를 영리하게 넘나드는 감성 폭발 코스</p>
+        </div>
+
+        <!-- 타임라인 코스 -->
+        <div class="course-timeline-wrap">
+          <div class="timeline-heading">
+            <span>📍</span>
+            <span>언니가 짜준 오늘 동선 (1차 → 2차 → 3차)</span>
+          </div>
+          <div class="timeline-steps" id="timelineSteps">
+            <!-- 코스 단계들 -->
+          </div>
+        </div>
+
+        <!-- 언니가 추천한 이유 -->
+        <div class="reason-box">
+          <div class="reason-title">
+            <span>💡</span>
+            <span>언니가 여길 콕 집어준 이유</span>
+          </div>
+          <p class="reason-desc" id="reasonText">
+            <!-- 추천 이유 -->
+          </p>
+        </div>
+
+        <!-- 언니의 비기 꿀팁 -->
+        <div class="secret-tip-box">
+          <div class="tip-title">
+            <span>🍯</span>
+            <span>언니의 비밀 꿀팁 & 대화 치트키</span>
+          </div>
+          <p class="tip-desc" id="secretTipText">
+            <!-- 꿀팁 내용 -->
+          </p>
+        </div>
+      </div>
+
+      <!-- 액션 버튼들 -->
+      <div class="result-actions">
+        <button class="btn-reroll" id="rerollBtn">
+          <span>다른 코스 더 추천해줘</span>
+          <span>🎲</span>
+        </button>
+        <button class="btn-secondary" id="restartBtn">
+          <span>조건 바꿔서 다시 고르기</span>
+          <span>🔄</span>
+        </button>
+        <button class="btn-copy" id="copyBtn">
+          <span>📋 이 코스 메모장에 복사하기</span>
+        </button>
+      </div>
+
+      <footer>
+        언니 픽 믿고 오늘은 무조건 썸 탈환 & 연애 대성공 기원! 💖
+      </footer>
+    </section>
+  </main>
+
+  <!-- 입력 누락 알림 토스트 -->
+  <div class="validation-toast" id="validationToast">
+    <span>⚠️</span>
+    <span id="toastMessage">빠진 항목을 선택해줘!</span>
+  </div>
+
+  <!-- ============================================== -->
+  <!-- JAVASCRIPT: 데이터베이스 및 추천 알고리즘 엔진 -->
+  <!-- ============================================== -->
+  <script>
+    /* ----------------------------------------------------
+       1. 상태 관리 (State Management)
+    ---------------------------------------------------- */
+    const state = {
+      weather: null,   // 'sunny' | 'cloudy' | 'rainy'
+      temp: 20,        // -20 to 34
+      outfit: null,    // 'casual' | 'semi' | 'glam'
+      vibe: null,      // 'romantic' | 'healing' | 'active' | 'special'
+      lastRecommendationIndex: 0,
+      matchedPool: []
+    };
+
+    /* ----------------------------------------------------
+       2. 오디오 효과 (Web Audio API - 무외부 파일 사운드)
+    ---------------------------------------------------- */
+    const playSound = (type = 'click') => {
+      try {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        if (!AudioContext) return;
+        const ctx = new AudioContext();
+        
+        if (type === 'click') {
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(480, ctx.currentTime);
+          osc.frequency.exponentialRampToValueAtTime(720, ctx.currentTime + 0.08);
+          gain.gain.setValueAtTime(0.12, ctx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.08);
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start();
+          osc.stop(ctx.currentTime + 0.08);
+        } else if (type === 'success') {
+          // Cheerful chime
+          const notes = [523.25, 659.25, 783.99, 1046.50]; // C E G C
+          notes.forEach((freq, i) => {
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+            osc.type = 'triangle';
+            osc.frequency.setValueAtTime(freq, ctx.currentTime + i * 0.07);
+            gain.gain.setValueAtTime(0.15, ctx.currentTime + i * 0.07);
+            gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + i * 0.07 + 0.28);
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+            osc.start(ctx.currentTime + i * 0.07);
+            osc.stop(ctx.currentTime + i * 0.07 + 0.3);
+          });
+        }
+      } catch (e) {
+        // Fallback gracefully if Web Audio not supported
+      }
+    };
+
+    /* ----------------------------------------------------
+       3. 축하 콘페티 효과 (Canvas Confetti Engine)
+    ---------------------------------------------------- */
+    function fireConfetti() {
+      const canvas = document.getElementById('confettiCanvas');
+      const ctx = canvas.getContext('2d');
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      const particles = [];
+      const colors = ['#FF5E7E', '#FFAAA6', '#FFD166', '#06D6A0', '#118AB2', '#FF85A1'];
+      
+      for (let i = 0; i < 65; i++) {
+        particles.push({
+          x: canvas.width / 2 + (Math.random() - 0.5) * 160,
+          y: canvas.height * 0.35,
+          vx: (Math.random() - 0.5) * 12,
+          vy: Math.random() * -12 - 4,
+          size: Math.random() * 8 + 5,
+          color: colors[Math.floor(Math.random() * colors.length)],
+          rotation: Math.random() * 360,
+          rotSpeed: (Math.random() - 0.5) * 8,
+          gravity: 0.38,
+          opacity: 1
+        });
+      }
+
+      let animationFrame;
+      const render = () => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        let aliveCount = 0;
+
+        particles.forEach(p => {
+          p.x += p.vx;
+          p.y += p.vy;
+          p.vy += p.gravity;
+          p.rotation += p.rotSpeed;
+          p.opacity -= 0.012;
+
+          if (p.opacity > 0 && p.y < canvas.height) {
+            aliveCount++;
+            ctx.save();
+            ctx.globalAlpha = Math.max(0, p.opacity);
+            ctx.translate(p.x, p.y);
+            ctx.rotate((p.rotation * Math.PI) / 180);
+            ctx.fillStyle = p.color;
+            ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * 0.7);
+            ctx.restore();
+          }
+        });
+
+        if (aliveCount > 0) {
+          animationFrame = requestAnimationFrame(render);
+        } else {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          cancelAnimationFrame(animationFrame);
+        }
+      };
+      render();
+    }
+
+    /* ----------------------------------------------------
+       4. 온도 슬라이더 상태 피드백 로직
+    ---------------------------------------------------- */
+    const tempSlider = document.getElementById('tempSlider');
+    const tempNumber = document.getElementById('tempNumber');
+    const tempFeelPill = document.getElementById('tempFeelPill');
+    const tempFeelText = document.getElementById('tempFeelText');
+    const tempTipText = document.getElementById('tempTipText');
+
+    function getTempCategory(t) {
+      if (t <= -5) return 'freeze';
+      if (t <= 5) return 'cold';
+      if (t <= 16) return 'chilly';
+      if (t <= 24) return 'ideal';
+      if (t <= 29) return 'warm';
+      return 'hot';
+    }
+
+    function updateTempFeedback(temp) {
+      state.temp = parseInt(temp, 10);
+      tempNumber.textContent = state.temp;
+
+      const cat = getTempCategory(state.temp);
+      if (cat === 'freeze') {
+        tempFeelPill.innerHTML = `<span>🥶</span><span>칼바람 극성! 무조건 지하철 직결 실내</span>`;
+        tempTipText.textContent = `영하 ${Math.abs(state.temp)}도야! 밖에서 5분만 있어도 귀 떨어져. 지하철역에서 바로 연결되는 대형 복합몰이 답이야!`;
+        tempFeelPill.style.background = '#EBF4FF';
+        tempFeelPill.style.color = '#1E40AF';
+        tempFeelPill.style.borderColor = '#BFDBFE';
+      } else if (cat === 'cold') {
+        tempFeelPill.innerHTML = `<span>❄️</span><span>패딩 필수! 쌀쌀한 겨울 날씨</span>`;
+        tempTipText.textContent = `날이 꽤 쌀쌀해. 따뜻한 찻집이나 아늑한 온기가 느껴지는 실내 위주로 동선을 좁혀야 해!`;
+        tempFeelPill.style.background = '#F0F9FF';
+        tempFeelPill.style.color = '#0369A1';
+        tempFeelPill.style.borderColor = '#BAE6FD';
+      } else if (cat === 'chilly') {
+        tempFeelPill.innerHTML = `<span>🍂</span><span>트렌치/자켓 입기 딱 좋은 쌀쌀선선</span>`;
+        tempTipText.textContent = `가을이나 초봄 감성! 예쁜 아우터 뽐내면서 골목 산책하다가 따뜻한 곳 들어가면 딱 좋아.`;
+        tempFeelPill.style.background = '#FFFBEB';
+        tempFeelPill.style.color = '#B45309';
+        tempFeelPill.style.borderColor = '#FDE68A';
+      } else if (cat === 'ideal') {
+        tempFeelPill.innerHTML = `<span>🌸</span><span>선선하고 데이트하기 최적의 온도!</span>`;
+        tempTipText.textContent = `날씨 축복받은 날! 걷기만 해도 사랑이 싹트는 환상 기온이야. 테라스나 야외 스팟 무조건 포함해줄게.`;
+        tempFeelPill.style.background = '#FFF0F3';
+        tempFeelPill.style.color = 'var(--primary)';
+        tempFeelPill.style.borderColor = '#FFD6DE';
+      } else if (cat === 'warm') {
+        tempFeelPill.innerHTML = `<span>🌤️</span><span>초여름 느낌! 반팔이나 얇은 셔츠</span>`;
+        tempTipText.textContent = `햇빛 아래는 약간 땀날 수 있어. 낮엔 시원한 실내, 해 질 무렵엔 야외 루프탑이나 호수 산책 추천!`;
+        tempFeelPill.style.background = '#FFF7ED';
+        tempFeelPill.style.color = '#C2410C';
+        tempFeelPill.style.borderColor = '#FED7AA';
+      } else {
+        tempFeelPill.innerHTML = `<span>🔥</span><span>폭염 경보! 에어컨 빵빵한 몰캉스 필수</span>`;
+        tempTipText.textContent = `${state.temp}도면 10미터만 걸어도 땀 범벅돼서 화장 다 무너져! 무조건 100% 쾌적한 실내로 짜줄게.`;
+        tempFeelPill.style.background = '#FEF2F2';
+        tempFeelPill.style.color = '#B91C1C';
+        tempFeelPill.style.borderColor = '#FECACA';
+      }
+    }
+
+    tempSlider.addEventListener('input', (e) => {
+      updateTempFeedback(e.target.value);
+    });
+
+    /* ----------------------------------------------------
+       5. 선택 카드 인터랙션 핸들러
+    ---------------------------------------------------- */
+    document.querySelectorAll('.choice-card').forEach(card => {
+      card.addEventListener('click', () => {
+        playSound('click');
+        const group = card.dataset.group;
+        const value = card.dataset.value;
+
+        // 같은 그룹 내 선택 해제 후 현재 카드 활성화
+        document.querySelectorAll(`.choice-card[data-group="${group}"]`).forEach(c => c.classList.remove('selected'));
+        card.classList.add('selected');
+
+        state[group] = value;
+
+        // 뱃지 업데이트
+        const badgeMap = {
+          weather: document.getElementById('weatherBadge'),
+          outfit: document.getElementById('outfitBadge'),
+          vibe: document.getElementById('vibeBadge')
+        };
+
+        if (badgeMap[group]) {
+          badgeMap[group].textContent = '선택 완료 ✓';
+          badgeMap[group].style.background = '#E8F5E9';
+          badgeMap[group].style.color = '#2E7D32';
+        }
+
+        // 혹시 에러 테두리가 있었다면 제거
+        const sectionMap = {
+          weather: document.getElementById('weatherSection'),
+          outfit: document.getElementById('outfitSection'),
+          vibe: document.getElementById('vibeSection')
+        };
+        if (sectionMap[group]) {
+          sectionMap[group].classList.remove('has-error');
+        }
+      });
+    });
+
+    /* ----------------------------------------------------
+       6. 화면 전환 및 토스트
+    ---------------------------------------------------- */
+    const introScreen = document.getElementById('introScreen');
+    const inputScreen = document.getElementById('inputScreen');
+    const resultScreen = document.getElementById('resultScreen');
+
+    function switchScreen(target) {
+      playSound('click');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+      target.classList.add('active');
+    }
+
+    document.getElementById('startBtn').addEventListener('click', () => {
+      switchScreen(inputScreen);
+    });
+
+    document.getElementById('inputBackBtn').addEventListener('click', () => {
+      switchScreen(introScreen);
+    });
+
+    document.getElementById('restartBtn').addEventListener('click', () => {
+      switchScreen(inputScreen);
+    });
+
+    // 뷰 모드 토글 (모바일 뷰 vs 넓은 화면)
+    const viewToggleBtn = document.getElementById('viewToggleBtn');
+    const appContainer = document.getElementById('appContainer');
+    const viewToggleIcon = document.getElementById('viewToggleIcon');
+    const viewToggleText = document.getElementById('viewToggleText');
+    let isWide = false;
+
+    viewToggleBtn.addEventListener('click', () => {
+      playSound('click');
+      isWide = !isWide;
+      if (isWide) {
+        appContainer.classList.add('wide-mode');
+        viewToggleIcon.textContent = '💻';
+        viewToggleText.textContent = '와이드 뷰';
+      } else {
+        appContainer.classList.remove('wide-mode');
+        viewToggleIcon.textContent = '📱';
+        viewToggleText.textContent = '모바일 뷰';
+      }
+    });
+
+    // 토스트 노출 함수
+    let toastTimeout = null;
+    function showToast(msg) {
+      const toast = document.getElementById('validationToast');
+      const toastMsg = document.getElementById('toastMessage');
+      toastMsg.textContent = msg;
+      toast.classList.add('show');
+      if (toastTimeout) clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2500);
+    }
+
+    /* ----------------------------------------------------
+       7. 데이트 코스 빅데이터 (Curated Database)
+    ---------------------------------------------------- */
+    const DATE_COURSES = [
+      /* ========================================================
+         CATEGORY 1: 실내 완전 특화 (눈/비, 한파 <=0도, 폭염 >=29도)
+      ======================================================== */
+      {
+        id: 'in-coex-romantic',
+        area: '삼성 코엑스 & 파르나스몰',
+        title: '비바람 차단! 별마당 라이브러리 & 파르나스 와인바 코스',
+        oneLiner: '우산 펼 필요 0%, 쾌적한 실내에서 감성과 인생샷 모두 잡는 코스',
+        weatherSuitability: ['rainy', 'cloudy', 'sunny'],
+        tempSuitability: ['freeze', 'cold', 'hot', 'warm', 'chilly', 'ideal'],
+        outfitSuitability: ['semi', 'glam'],
+        vibeSuitability: ['romantic', 'special'],
+        isIndoor: true,
+        steps: [
+          { badge: '1차 만남 & 사진', place: '별마당 도서관', detail: '웅장한 서가 앞에서 분위기 있는 전신 사진 찰칵! 조명이 은은해서 쌩얼도 예쁘게 나와.' },
+          { badge: '2차 식사', place: '글로브 비스트로 (파르나스몰)', detail: '클래식한 유럽 감성 이탈리안 레스토랑에서 라구 파스타와 스테이크 냠냠.' },
+          { badge: '3차 감성 마무리', place: '비어스앤비욘드 또는 럭셔리 라운지', detail: '비 오는 날엔 실내 재즈 선율 들으면서 하우스 와인 한잔으로 로맨틱한 분위기 완성!' }
+        ],
+        reason: '비나 눈이 오거나 기온이 극단적일 땐 바깥에 1분도 서있기 싫잖아! 지하철(삼성역)에서 바로 이어지는 코스라 구두나 예쁜 옷에 비 한 방울 안 묻히고 완벽한 데이트가 가능해.',
+        secretTip: '코엑스는 길 잃기 십상이니까 "별마당 도서관 중앙 인포메이션 앞"을 약속 장소로 잡으면 절대 헤매지 않아! 그리고 사진 찍을 땐 2층 에스컬레이터 타고 올라가면서 내려다보는 구도로 찍어달라고 해봐.'
+      },
+      {
+        id: 'in-the-hyundai-healing',
+        area: '여의도 더현대 서울 & IFC',
+        title: '사운즈 포레스트 실내 정원 & 힐링 윈도우 코스',
+        oneLiner: '실내에서 즐기는 푸릇푸릇한 온실 숲과 달콤한 디저트의 힐링 조합',
+        weatherSuitability: ['rainy', 'cloudy', 'sunny'],
+        tempSuitability: ['freeze', 'cold', 'hot', 'warm', 'chilly', 'ideal'],
+        outfitSuitability: ['casual', 'semi'],
+        vibeSuitability: ['healing', 'romantic'],
+        isIndoor: true,
+        steps: [
+          { badge: '1차 산책 & 브런치', place: '더현대 5층 사운즈 포레스트', detail: '새소리 들리는 실내 공원에서 산책하고, 테라스 카페에서 시그니처 커피 마시기.' },
+          { badge: '2차 팝업 구경', place: '지하 2층 크리에이티브 그라운드', detail: '요즘 가장 핫한 팝업 스토어랑 소품샵 돌아보며 서로 취향 탐색하기!' },
+          { badge: '3차 식사 & 영화', place: 'IFC몰 CGV 컴포트 시트', detail: '맛있는 일식 솥밥 든든하게 먹고 리클라이너 좌석에서 팝콘 먹으며 영화 한 편 편안하게 감상.' }
+        ],
+        reason: '날씨는 궂은데 초록초록한 자연 감성을 포기하기 싫을 때 더현대 서울 사운즈 포레스트만한 곳이 없어. 온실처럼 탁 트인 천장 채광 덕분에 실내여도 답답함 0%!',
+        secretTip: '더현대 맛집들은 현대식품관 앱으로 "모바일 웨이팅" 미리 걸어두는 거 필수야! 웨이팅 걸어놓고 여유롭게 정원 산책하면 프로 데이트러 소리 듣는다!'
+      },
+      {
+        id: 'in-escape-active',
+        area: '홍대 / 신촌 실내 아케이드',
+        title: '도파민 충전 100%! 프리미엄 방탈출 & 레트로 오락실 코스',
+        oneLiner: '우산 내던지고 뛰어놀자! 어색함 단번에 날려버리는 도파민 폭발 코스',
+        weatherSuitability: ['rainy', 'cloudy', 'sunny'],
+        tempSuitability: ['freeze', 'cold', 'hot', 'warm', 'chilly', 'ideal'],
+        outfitSuitability: ['casual', 'semi'],
+        vibeSuitability: ['active', 'special'],
+        isIndoor: true,
+        steps: [
+          { badge: '1차 아이스브레이킹', place: '꽃길 방탈출 카페 (예: 키이스케이프)', detail: '둘이서 머리 맞대고 단서 풀다 보면 스킨십 자연스럽게 생기고 심장 쫄깃해짐!' },
+          { badge: '2차 에너지 보충', place: '연남동 수제버거 또는 화덕피자', detail: '열심히 머리 썼으니 육즙 가득한 수제버거에 생맥주 한잔 들이켜주기.' },
+          { badge: '3차 미니 대결', place: '대형 보드게임 카페 & 레트로 펍', detail: '소원 내기 루미큐브나 뿅망치 걸고 게임 한판! 승부욕 발동해서 웃음 끊이지 않음.' }
+        ],
+        reason: '편하게 입고 활동적인 재미를 찾는 날엔 실내 액티비티가 최고지. 날씨 구애 전혀 안 받고 둘의 티키타카를 극대화할 수 있는 언니의 필승 웃음 보장 코스야!',
+        secretTip: '방탈출 할 때 상대방이 문제 잘 풀면 "헐 천재야? 완전 멋있다!" 리액션 크게 해줘. 칭찬 한마디에 분위기 180도 달달해진다.'
+      },
+      {
+        id: 'in-workshop-special',
+        area: '한남동 / 성수 공방 거리',
+        title: '우리만의 향기 만들기! 프라이빗 니치 향수 & 원데이 공방 코스',
+        oneLiner: '서로의 취향을 담은 특별한 선물을 남기는 이색적이고 감각적인 하루',
+        weatherSuitability: ['rainy', 'cloudy', 'sunny'],
+        tempSuitability: ['freeze', 'cold', 'hot', 'warm', 'chilly', 'ideal'],
+        outfitSuitability: ['semi', 'glam'],
+        vibeSuitability: ['special', 'romantic'],
+        isIndoor: true,
+        steps: [
+          { badge: '1차 이색 체험', place: '프라이빗 조향 클래스 공방', detail: '서로에게 어울리는 이미지를 향으로 표현해주며 향수 1병씩 직접 완성하기.' },
+          { badge: '2차 브런치 타임', place: '한남동 아티초크 or 부첼리 쇼룸', detail: '클래스 끝나고 따뜻한 감성 레스토랑에서 와인과 함께 파스타 즐기기.' },
+          { badge: '3차 바이닐 감상', place: '현대카드 바이닐앤플라스틱 / 뮤직라이브러리', detail: '헤드셋 끼고 나란히 서서 서로 좋아하는 노래 앨범 들려주며 낭만 나누기.' }
+        ],
+        reason: '항상 똑같은 밥-카페 코스가 지겨웠다면 향수 공방이 정답이야. 조향할 때 서로 가까이 붙어서 귓가에 속삭이듯 대화하게 되니까 텐션 올라갈 수밖에 없거든!',
+        secretTip: '향수 베이스 고를 때 "네 옷에서 이 향 나면 하루 종일 설렐 것 같아"라고 멘트 날려봐. 그날 밤 집에 가서 잠 못 잔다!'
+      },
+      {
+        id: 'in-spa-healing',
+        area: '잠실 / 하남 아쿠아필드',
+        title: '노곤노곤 찜질 & 인피니티 풋스파 힐링 코스',
+        oneLiner: '안꾸 룩으로 편하게 쉬면서 힐링하고 맛있는 것 먹는 무릉도원 코스',
+        weatherSuitability: ['rainy', 'cloudy', 'sunny'],
+        tempSuitability: ['freeze', 'cold', 'hot', 'warm', 'chilly', 'ideal'],
+        outfitSuitability: ['casual'],
+        vibeSuitability: ['healing'],
+        isIndoor: true,
+        steps: [
+          { badge: '1차 힐링 스타트', place: '프리미엄 스파 & 찜질스파', detail: '구름방, 편백나무방에서 땀 쏙 빼고 미디어 아트 룸에서 누워서 멍때리기.' },
+          { badge: '2차 간식 폭풍흡입', place: '스파 스낵바', detail: '찜질방 필수 코스인 구운 달걀 + 살얼음 식혜에 떡볶이까지 배 든든하게 채우기.' },
+          { badge: '3차 리클라이너 휴식', place: '릴랙스 라운지 (성인 전용)', detail: '폭신한 개인 리클라이너 소파에서 나란히 누워 넷플릭스 보거나 꿀잠 자기.' }
+        ],
+        reason: '오늘 옷도 편하게 입었고 만사가 귀찮은데 상대방은 보고 싶다? 그러면 고급 스파가 정답이야. 땀 흘리고 씻고 나오면 피부도 뽀얘지고 스트레스 제로!',
+        secretTip: '야외 풋스파 존에 나갈 땐 비치된 따뜻한 누빔 가운 꼭 챙겨 입고 손잡고 발 담가봐. 은근 분위기 엄청 몽환적이야.'
+      },
+
+      /* ========================================================
+         CATEGORY 2: 날씨 좋은 날 (18°C ~ 25°C & 맑음/흐림) 야외/테라스
+      ======================================================== */
+      {
+        id: 'out-seongsu-romantic',
+        area: '성수동 & 서울숲',
+        title: '햇살 테라스 브런치 & 서울숲 와인 피크닉 코스',
+        oneLiner: '날씨 좋은 날 안 가면 유죄! 감성 테라스와 와인이 어우러진 정석 데이트',
+        weatherSuitability: ['sunny', 'cloudy'],
+        tempSuitability: ['ideal', 'warm'],
+        outfitSuitability: ['semi', 'glam'],
+        vibeSuitability: ['romantic', 'healing'],
+        isIndoor: false,
+        steps: [
+          { badge: '1차 점심 브런치', place: '성수 앤더슨씨 / 체디가든 테라스', detail: '햇살 잘 드는 테라스 자리에 앉아 프렌치토스트와 에그베네딕트 브런치 즐기기.' },
+          { badge: '2차 산책 & 쇼룸', place: '서울숲 아틀리에길 & 팝업 스토어', detail: '손잡고 서울숲 거울연못 거닐며 인생샷 건지고 아기자기한 편집샵 구경.' },
+          { badge: '3차 로맨틱 디너', place: '성수 내추럴 와인바 (예: TBD or 스케줄성수)', detail: '어두워지면 은은한 캔들 불빛 아래서 와인 글라스 짠~ 하며 진솔한 속마음 털어놓기.' }
+        ],
+        reason: '오늘 같은 날씨는 일 년에 며칠 안 오는 황금 날씨야! 너무 덥지도 춥지도 않아서 예쁘게 차려입고 테라스에 앉아있으면 그냥 영화 속 주인공 되는 기분이지.',
+        secretTip: '서울숲 메타세콰이어길 안쪽 벤치에서 찍는 사진이 역광 안 받고 제일 청량하게 나와. 가방에서 물티슈 쓱 꺼내서 벤치 닦아주는 배려 보여주면 호감도 급상승!'
+      },
+      {
+        id: 'out-seochon-healing',
+        area: '서촌 & 통의동 골목',
+        title: '고즈넉한 한옥 돌담길 산책 & 감성 드립커피 힐링 코스',
+        oneLiner: '복잡한 도시 소음에서 벗어나 손잡고 느리게 걷는 따뜻한 서정적 데이트',
+        weatherSuitability: ['sunny', 'cloudy'],
+        tempSuitability: ['ideal', 'chilly', 'warm'],
+        outfitSuitability: ['casual', 'semi'],
+        vibeSuitability: ['healing', 'romantic'],
+        isIndoor: false,
+        steps: [
+          { badge: '1차 핸드드립 커피', place: '서촌 mk2 또는 통의동 보안여관', detail: '창밖으로 돌담이 보이는 창가에 앉아 정성스레 내린 커피와 디저트 맛보기.' },
+          { badge: '2차 감성 골목 투어', place: '서촌 독립서점 & 그릇 소품샵', detail: '유명 독립서점에서 서로에게 선물해주고 싶은 시집이나 에세이 한 권 골라주기.' },
+          { badge: '3차 저녁 식사', place: '서촌 이탈리안 비스트로 or 한옥 주점', detail: '은은한 조명이 켜진 한옥 마당에서 제철 요리에 정갈한 전통주 페어링.' }
+        ],
+        reason: '꾸안꾸로 편하면서도 감성 챙기고 싶은 날엔 서촌 골목길이 진리야. 높은 빌딩 없이 파란 하늘 보면서 걷다 보면 마음이 절로 몽글몽글해지거든.',
+        secretTip: '독립서점에서 책 살 때 첫 페이지에 "오늘 00이랑 서촌에서 보낸 시간 기억하며"라고 몰래 짧은 한 줄 메모 남겨서 선물해봐. 감동 200% 보장!'
+      },
+      {
+        id: 'out-hangang-active',
+        area: '여의도 / 반포 한강공원',
+        title: '선셋 따릉이 라이딩 & 잔디밭 치맥 로맨스 코스',
+        oneLiner: '바람 가르며 달리고 노을 바라보며 짠! 도파민과 낭만을 동시에!',
+        weatherSuitability: ['sunny', 'cloudy'],
+        tempSuitability: ['ideal', 'warm'],
+        outfitSuitability: ['casual', 'semi'],
+        vibeSuitability: ['active', 'healing', 'romantic'],
+        isIndoor: false,
+        steps: [
+          { badge: '1차 액티브 라이딩', place: '한강공원 따릉이 / 커플 자전거', detail: '시원한 강바람 맞으면서 노을 지는 강변 코스 함께 신나게 달리기!' },
+          { badge: '2차 피크닉 세팅', place: '달빛광장 텐트 / 돗자리 대여존', detail: '감성 체크 돗자리 깔고 미니 조명 켜서 우리만의 아늑한 야외 아지트 만들기.' },
+          { badge: '3차 먹방 & 야경', place: '한강 즉석라면 + 반반 치킨 + 맥주', detail: '기계로 끓인 꼬들꼬들 한강 라면에 바삭한 치킨 뜯으며 반포 달빛무지개분수 감상.' }
+        ],
+        reason: '활동적인 에너지도 내고 싶고, 편안한 복장으로 야외 기분 맘껏 만끽하고 싶을 땐 한강 피크닉이 국룰이지. 해 질 녘 골든아워에 찍는 사진은 무조건 프사각이야!',
+        secretTip: '해가 지면 강바람 때문에 쌀쌀해질 수 있으니 얇은 겉옷이나 담요 하나 가방에 챙겨가서 상대방 어깨에 스윽 덮어줘. 센스 만점 남친/여친 등극!'
+      },
+      {
+        id: 'out-ikseon-glam',
+        area: '익선동 & 북촌 한옥마을',
+        title: '개화기 무드 한옥 다이닝 & 루프탑 칵테일 코스',
+        oneLiner: '오늘처럼 예쁘게 꾸민 날 인생샷 100장 건지는 고품격 낭만 코스',
+        weatherSuitability: ['sunny', 'cloudy'],
+        tempSuitability: ['ideal', 'chilly', 'warm'],
+        outfitSuitability: ['glam'],
+        vibeSuitability: ['romantic', 'special'],
+        isIndoor: false,
+        steps: [
+          { badge: '1차 인생샷 타임', place: '북촌 한옥 골목길 & 계동길', detail: '단아한 한옥 담벼락과 예쁜 문 앞에서 풀세팅한 착장 빛나게 전신 사진 남기기.' },
+          { badge: '2차 한옥 다이닝', place: '익선동 온천집 or 살라댕방콕', detail: '물안개 피어오르는 정원과 한옥 인테리어 속에서 정갈한 퓨전 코스요리 즐기기.' },
+          { badge: '3차 야경 칵테일', place: '익선동 한옥 루프탑 바 (예: 시그니처 바)', detail: '처마 밑 야경과 은은한 재즈 음악 들으며 칵테일 한잔으로 낭만 폭발시키기.' }
+        ],
+        reason: '오늘 옷 신경 써서 꾸꾸꾸로 입었는데 아무 데나 갈 순 없잖아! 배경이 고풍스럽고 조명이 잘 갖춰진 한옥 다이닝이어야 오늘 당신의 완벽한 룩이 200% 살아나.',
+        secretTip: '익선동 돌길은 하이힐 신으면 틈새에 낄 수 있으니까 걸을 때 꼭 팔짱 끼거나 손잡고 에스코트해줘! "오늘 진짜 너무 예쁘다" 칭찬은 틈날 때마다 해주는 게 원칙!'
+      },
+
+      /* ========================================================
+         CATEGORY 3: 선선/쌀쌀할 때 (1°C ~ 16°C & 맑음/흐림) 감성 하이브리드
+      ======================================================== */
+      {
+        id: 'chilly-euljiro-special',
+        area: '을지로 힙지로 & 충무로',
+        title: '간판 없는 숨은 와인바 & 레트로 LP바 탐험 코스',
+        oneLiner: '쌀쌀한 날씨에 더 분위기 터지는 힙한 골목 속 비밀 아지트',
+        weatherSuitability: ['sunny', 'cloudy'],
+        tempSuitability: ['chilly', 'cold'],
+        outfitSuitability: ['semi', 'glam'],
+        vibeSuitability: ['special', 'romantic'],
+        isIndoor: false,
+        steps: [
+          { badge: '1차 든든한 저녁', place: '을지로 감성 타코 or 줄서는 고깃집', detail: '날씨 쌀쌀하니 따끈한 철판 요리나 맛있는 고기로 든든하게 배 채우기.' },
+          { badge: '2차 아지트 탐방', place: '간판 없는 을지로 감성 와인바 (예: 보석, 녁)', detail: '철제 계단 올라가 비밀 문을 열면 펼쳐지는 앤틱 조명과 잔잔한 음악의 세계!' },
+          { badge: '3차 레트로 낭만', place: '충무로 바이닐 LP바', detail: '신청곡 종이에 적어 DJ에게 건네고, 올드 팝 들으며 어깨 기대고 속닥속닥 대화하기.' }
+        ],
+        reason: '가을바람 불고 쌀쌀할 땐 을지로의 낡은 골목과 대비되는 따뜻한 주황빛 와인바 감성이 치트키야. 바깥 추위를 잊을 만큼 실내 공기가 아늑하고 로맨틱해지거든.',
+        secretTip: '을지로는 입구가 숨겨져 있으니 미리 지도 앱에 핀 찍어두고 자연스럽게 "이 문 뒤에 엄청난 곳이 있어" 하면서 앞장서봐. 프로페셔널한 매력 폭발!'
+      },
+      {
+        id: 'chilly-samcheong-art',
+        area: '삼청동 & 현대미술관(MMCA)',
+        title: '감각적인 미술관 전시 & 삼청동 수제비/따뜻한 찻집 코스',
+        oneLiner: '지적인 대화와 따스한 온기가 가득한 실패 없는 문화 힐링 데이트',
+        weatherSuitability: ['sunny', 'cloudy', 'rainy'],
+        tempSuitability: ['chilly', 'cold', 'ideal'],
+        outfitSuitability: ['casual', 'semi', 'glam'],
+        vibeSuitability: ['healing', 'special', 'romantic'],
+        isIndoor: false,
+        steps: [
+          { badge: '1차 감각 깨우기', place: '국립현대미술관 서울관 (MMCA)', detail: '조용한 전시실에서 작품 나란히 감상하며 서로의 예술 취향과 생각 나누기.' },
+          { badge: '2차 뜨끈한 맛집', place: '삼청동 전통 수제비 or 삼청빙수 단팥죽', detail: '전시 보고 나와 쌀쌀해진 몸을 뜨끈하고 진한 국물 요리로 사르르 녹이기.' },
+          { badge: '3차 온기 찻집', place: '삼청동 한옥 전통 찻집 (예: 마당넓은집)', detail: '따뜻한 온돌방에 앉아 국화차나 오미자차 마시며 나른하게 쉬어가기.' }
+        ],
+        reason: '기온이 쌀쌀할 땐 실내 미술관에서 지적인 여유를 누리다가 뜨끈한 음식으로 마무리하는 동선이 최고야. 걷는 시간도 딱 적당해서 피로감이 전혀 없어.',
+        secretTip: '미술관에서 어려운 현대미술 볼 때 억지로 해석하려 하지 말고 "너는 이 그림 보니까 어떤 기분 들어?"라고 열린 질문을 던져봐. 대화가 꼬리를 물고 이어진단다.'
+      },
+
+      /* ========================================================
+         CATEGORY 4: 활동적 & 이색 테마 특화 코스
+      ======================================================== */
+      {
+        id: 'special-aquarium-romantic',
+        area: '잠실 롯데월드몰 & 아쿠아리움',
+        title: '푸른 바닷속 환상 뷰! 아쿠아리움 & 스카이 루프탑 다이닝',
+        oneLiner: '신비로운 수중 터널 인생샷과 초고층 시티뷰가 선사하는 특급 하루',
+        weatherSuitability: ['rainy', 'cloudy', 'sunny'],
+        tempSuitability: ['freeze', 'cold', 'hot', 'warm', 'chilly', 'ideal'],
+        outfitSuitability: ['semi', 'glam'],
+        vibeSuitability: ['romantic', 'special'],
+        isIndoor: true,
+        steps: [
+          { badge: '1차 수중 힐링', place: '롯데월드 아쿠아리움', detail: '가오리와 펭귄 보며 동심으로 돌아가고, 대형 메인 수조 앞에서 실루엣 커플샷 남기기.' },
+          { badge: '2차 몰 디저트', place: '노티드 월드 or 런던베이글뮤지엄 잠실', detail: '달콤한 도넛과 향긋한 커피 마시며 아쿠아리움에서 찍은 사진 서로 골라주기.' },
+          { badge: '3차 스카이 디너', place: '롯데월드몰 고층 레스토랑 or 석촌호수 뷰 바', detail: '반짝이는 서울 야경 내려다보며 스테이크와 칵테일로 화려하게 하루 마무리.' }
+        ],
+        reason: '특별한 날 느낌을 제대로 내고 싶다면 아쿠아리움의 푸른 수조 조명과 스카이라운지의 조합이 최고야. 계절이나 날씨 영향을 전혀 안 받아서 약속 깰 걱정도 제로!',
+        secretTip: '수조 앞 사진 찍을 땐 플래시 끄고 수조 불빛을 조명 삼아 실루엣 사진 찍으면 인스타 감성 엽서 사진 뚝딱이야.'
+      },
+      {
+        id: 'active-roller-retro',
+        area: '성수 / 건대 액티비티 존',
+        title: '뉴트로 감성 폭발! 롤러스케이트 & 락볼링장 내기 코스',
+        oneLiner: '자연스러운 손잡기와 빵빵 터지는 웃음! 어색함 완벽 분쇄 코스',
+        weatherSuitability: ['rainy', 'cloudy', 'sunny'],
+        tempSuitability: ['freeze', 'cold', 'hot', 'warm', 'chilly', 'ideal'],
+        outfitSuitability: ['casual'],
+        vibeSuitability: ['active'],
+        isIndoor: true,
+        steps: [
+          { badge: '1차 롤러 라이딩', place: '레트로 롤러스케이트장', detail: '신나는 8090 댄스 음악에 맞춰 서로 손잡아주며 중심 잡기! 자연스런 스킨십 보장.' },
+          { badge: '2차 야식 먹방', place: '건대 양꼬치 골목 or 성수 타코 펍', detail: '신나게 땀 흘리고 시원한 칭따오 맥주에 양꼬치 꿔바로우 배 터지게 먹기.' },
+          { badge: '3차 볼링 배틀', place: '화려한 네온 락볼링장', detail: '신나는 비트에 칵테일 마시면서 음료수 내기 볼링 한판! 하이파이브 백만 번 가능.' }
+        ],
+        reason: '오늘 옷을 안꾸로 편하게 입었다면 얌전히 앉아있기 아깝지! 롤러나 볼링은 못 타면 못 타는 대로 잡아주며 친해지고, 잘 타면 멋있어서 반하게 되는 마법의 코스야.',
+        secretTip: '상대방이 롤러 잘 못 타면 절대 비웃지 말고 뒤에서 든든하게 허리나 손 잡아줘. 그 듬직함에 바로 입덕한다.'
+      },
+      {
+        id: 'healing-forest-cafe',
+        area: '남양주 / 북한산 뷰 마운틴 카페',
+        title: '숲멍 물멍의 끝판왕! 통창 대형 식물원 베이커리 코스',
+        oneLiner: '초록빛 자연에 둘러싸여 마시는 커피와 갓 구운 빵의 무한 힐링',
+        weatherSuitability: ['sunny', 'cloudy'],
+        tempSuitability: ['ideal', 'warm', 'chilly'],
+        outfitSuitability: ['casual', 'semi'],
+        vibeSuitability: ['healing'],
+        isIndoor: false,
+        steps: [
+          { badge: '1차 드라이브/이동', place: '북한산 자락 or 근교 숲길', detail: '좋아하는 플레이리스트 틀어두고 초록초록한 가로수길 기분 좋게 이동하기.' },
+          { badge: '2차 대형 정원 카페', place: '식물원 베이커리 카페 (예: 포인트빌 or 앤드테라스)', detail: '탁 트인 마운틴 뷰 통창 앞에서 소금빵이랑 시그니처 크림라떼 맛보기.' },
+          { badge: '3차 정원 산책', place: '야외 잔디정원 산책로', detail: '꽃향기 맡으며 정원 벤치에서 도란도란 소소한 일상 이야기 나누기.' }
+        ],
+        reason: '도심 속 카페는 사람 많아서 기 빨릴 때 있잖아. 주말에 편안한 힐링을 원할 땐 자연을 품은 대형 베이커리 카페에서 아무 생각 없이 숲멍 때리는 게 약이야.',
+        secretTip: '통창 자리는 볕이 강할 수 있으니 살짝 그늘진 2층 창가 모서리 자리를 공략해봐. 사진도 그림처럼 나오고 둘만의 프라이빗한 공간 느낌이 나.'
+      },
+      {
+        id: 'special-dark-dining',
+        area: '신촌 / 대학로 이색 체험',
+        title: '오감 자극! 블라인드 암흑 레스토랑 & 연극 관람 코스',
+        oneLiner: '시각을 끄고 서로의 목소리에만 집중하는 잊지 못할 특별한 추억',
+        weatherSuitability: ['rainy', 'cloudy', 'sunny'],
+        tempSuitability: ['freeze', 'cold', 'hot', 'warm', 'chilly', 'ideal'],
+        outfitSuitability: ['casual', 'semi', 'glam'],
+        vibeSuitability: ['special', 'romantic'],
+        isIndoor: true,
+        steps: [
+          { badge: '1차 몰입 연극', place: '대학로 인기 로맨틱 코미디 연극', detail: '배우들의 숨소리까지 느껴지는 소극장에서 마음껏 웃고 공감하며 유대감 쌓기.' },
+          { badge: '2차 암흑 다이닝', place: '블라인드 레스토랑 (암흑 체험 식사)', detail: '빛 한 점 없는 곳에서 서로에게 의지하며 미각과 청각에만 집중해 식사하기.' },
+          { badge: '3차 밤거리 감성', place: '낙산공원 야경 성곽길 산책', detail: '어둠 속 체험 끝내고 나와 서울 야경이 한눈에 내려다보이는 성곽길 나란히 걷기.' }
+        ],
+        reason: '진짜 특별하고 평생 기억에 남을 데이트를 원할 때 강추하는 코스야! 시각이 차단되면 상대방의 목소리 톤과 손끝의 온기에 온전히 집중하게 돼서 친밀도가 폭발해.',
+        secretTip: '암흑 속에서 상대방 손을 슬그머니 찾아 쥐어봐. 시각이 없을 때의 스킨십은 심장 박동 수를 2배로 뛰게 만든단다!'
+      }
+    ];
+
+    /* ----------------------------------------------------
+       8. 언니의 말투 생성 엔진 (Dynamic Speech Generator)
+    ---------------------------------------------------- */
+    function generateUnnieComment(weather, temp, outfit, vibe, course) {
+      const weatherNameMap = { sunny: '화창하게 맑은 날', cloudy: '운치 있게 흐린 날', rainy: '비나 눈이 촉촉하게 내리는 날' };
+      const outfitNameMap = { casual: '편안한 안꾸 스타일', semi: '센스 있는 꾸안꾸 룩', glam: '작정하고 힘준 꾸꾸꾸 풀착장' };
+      const vibeNameMap = { romantic: '로맨틱하고 설레는 분위기', healing: '편안하고 힐링되는 시간', active: '도파민 터지는 신나는 재미', special: '잊지 못할 색다르고 특별한 추억' };
+
+      const tempCat = getTempCategory(temp);
+
+      let opener = "";
+      if (tempCat === 'freeze') {
+        opener = `야, 오늘 영하 ${Math.abs(temp)}도 실화냐? 밖에서 똥폼 잡다간 둘 다 감기 걸려서 데이트 파토나! 🥶`;
+      } else if (tempCat === 'cold') {
+        opener = `오늘 기온 ${temp}도라 꽤 쌀쌀해! 으슬으슬한 날씨엔 무조건 온기 돌고 아늑한 곳으로 가야 돼. 🧣`;
+      } else if (tempCat === 'chilly') {
+        opener = `오늘 ${temp}도면 딱 자켓이나 코트 걸치기 좋은 가을/봄 감성 날씨잖아! 🍂`;
+      } else if (tempCat === 'ideal') {
+        opener = `대박, 오늘 ${temp}도에 날씨 환상이다! 걷기만 해도 썸 타는 사람도 오늘 1일 될 날씨야. 🌸✨`;
+      } else if (tempCat === 'warm') {
+        opener = `오늘 ${temp}도로 살짝 후끈하네! 낮엔 시원한 곳에서 더위 피하고 해 질 녘 노리는 게 언니 꿀팁이야. ☀️`;
+      } else {
+        opener = `오늘 ${temp}도 폭염 경보야! 길거리 10분만 걸어도 땀 뻘뻘 흘려서 서로 정떨어질 수 있어. 무조건 에어컨 풀가동 실내로 가야 해! 🔥`;
+      }
+
+      let middle = "";
+      if (outfit === 'casual') {
+        middle = `게다가 오늘 편하게 운동화 챙겨 신은 <strong>${outfitNameMap[outfit]}</strong>이잖아? 힐 신고 발 아파서 찡찡거릴 걱정 1도 없으니까 발걸음 가볍게 즐길 수 있는 곳으로 골랐어.`;
+      } else if (outfit === 'semi') {
+        middle = `거기다 오늘 딱 센스 넘치는 <strong>${outfitNameMap[outfit]}</strong>으로 입었다니 안성맞춤이지! 너무 부담스럽지도 않고 어디 들어가도 예쁜 그런 황금 밸런스야.`;
+      } else {
+        middle = `거기다 오늘 헤어 메이크업 빡세게 신경 쓴 <strong>${outfitNameMap[outfit]}</strong>이잖아! 절대 많이 걷게 안 하고, 사진 백만 장 찍어도 조명빨 최고로 받는 고급진 동선으로 짰으니까 안심해!`;
+      }
+
+      let ending = "";
+      if (vibe === 'romantic') {
+        ending = `네가 원한 <strong>${vibeNameMap[vibe]}</strong>에 맞춰서 와인잔 부딪히며 눈 마주치면 심장 멎는 <strong>[${course.area}]</strong> 코스로 골라줬어. 언니 말 믿고 그냥 이대로만 따라가 봐, 오늘 분위기 무조건 네 거야! 💖`;
+      } else if (vibe === 'healing') {
+        ending = `바쁜 일상에 지쳤을 텐데 편안하게 숨 쉴 수 있는 <strong>[${course.area}]</strong> 힐링 코스가 딱이야. 나란히 앉아 차 한잔 마시면서 도란도란 이야기 나누고 와! 🌿`;
+      } else if (vibe === 'active') {
+        ending = `지루한 밥-카페 반복 말고 둘이 웃음 빵빵 터지라고 <strong>[${course.area}]</strong> 액티비티 코스로 골라줬어. 오늘 하이파이브 백 번 하고 텐션 올려보자! 🎢`;
+      } else {
+        ending = `남들 다 가는 뻔한 데이트 지겹잖아? <strong>${vibeNameMap[vibe]}</strong> 만들어주려고 <strong>[${course.area}]</strong>의 이색 코스로 엄선했어. 둘만의 특별한 추억 제대로 새겨봐! 🎨`;
+      }
+
+      return `${opener} ${middle} ${ending}`;
+    }
+
+    /* ----------------------------------------------------
+       9. 데이트 코스 추천 알고리즘 (Scoring & Matching)
+    ---------------------------------------------------- */
+    function filterAndRankCourses(weather, temp, outfit, vibe) {
+      const tempCat = getTempCategory(temp);
+      const isExtremeWeather = (weather === 'rainy' || tempCat === 'freeze' || tempCat === 'hot');
+
+      // 각 코스별 적합도 점수 계산
+      const scored = DATE_COURSES.map(course => {
+        let score = 0;
+
+        // 날씨 적합도 (비 오거나 한파/폭염일 땐 실내 코스 가산점 대폭 부여)
+        if (isExtremeWeather) {
+          if (course.isIndoor) score += 40;
+          else score -= 30; // 악천후에 야외는 큰 감점
+        } else {
+          // 온화한 날씨
+          if (!course.isIndoor && (weather === 'sunny' || weather === 'cloudy')) score += 20;
+          if (course.weatherSuitability.includes(weather)) score += 15;
+        }
+
+        // 온도 적합도
+        if (course.tempSuitability.includes(tempCat)) score += 25;
+
+        // 코디 적합도
+        if (course.outfitSuitability.includes(outfit)) score += 25;
+        // 꾸꾸꾸인데 롤러나 자전거 타는 코스 감점 방지
+        if (outfit === 'glam' && (course.id.includes('roller') || course.id.includes('hangang'))) score -= 40;
+        // 안꾸인데 럭셔리 한옥 다이닝
+        if (outfit === 'casual' && course.outfitSuitability.includes('glam') && !course.outfitSuitability.includes('casual')) score -= 15;
+
+        // 분위기 적합도 (가장 중요)
+        if (course.vibeSuitability.includes(vibe)) score += 35;
+
+        return { course, score };
+      });
+
+      // 점수 내림차순 정렬
+      scored.sort((a, b) => b.score - a.score);
+
+      // 상위 후보군 리턴
+      return scored.map(item => item.course);
+    }
+
+    /* ----------------------------------------------------
+       10. 결과 렌더링 함수
+    ---------------------------------------------------- */
+    function renderResult(course) {
+      playSound('success');
+      fireConfetti();
+
+      // 조건 뱃지 렌더링
+      const conditionsBar = document.getElementById('resultConditionsBar');
+      const weatherTextMap = { sunny: '맑음 ☀️', cloudy: '흐림 ☁️', rainy: '비/눈 🌧️' };
+      const outfitTextMap = { casual: '편함(안꾸) 👟', semi: '꾸안꾸 ✨', glam: '꾸꾸꾸 💄' };
+      const vibeTextMap = { romantic: '감성·로맨틱 🍷', healing: '편안·힐링 🌿', active: '활기·재미 🎢', special: '특별·이색 🎨' };
+
+      conditionsBar.innerHTML = `
+        <span class="condition-pill">${weatherTextMap[state.weather]}</span>
+        <span class="condition-pill">${state.temp}°C 🌡️</span>
+        <span class="condition-pill">${outfitTextMap[state.outfit]}</span>
+        <span class="condition-pill">${vibeTextMap[state.vibe]}</span>
+      `;
+
+      // 언니 멘트 생성
+      const speech = generateUnnieComment(state.weather, state.temp, state.outfit, state.vibe, course);
+      document.getElementById('unnieSpeechText').innerHTML = speech;
+
+      // 장소 정보
+      document.getElementById('spotMainTitle').textContent = course.title;
+      document.getElementById('spotOneLiner').textContent = course.oneLiner;
+
+      // 뱃지들
+      const badgesContainer = document.getElementById('spotBadges');
+      badgesContainer.innerHTML = `
+        <span class="match-pill area">📍 ${course.area}</span>
+        <span class="match-pill">${course.isIndoor ? '🏢 100% 쾌적 실내' : '🌿 테라스 & 야외 뷰'}</span>
+        <span class="match-pill">💖 싱크로율 99.8%</span>
+      `;
+
+      // 타임라인 단계들
+      const timelineContainer = document.getElementById('timelineSteps');
+      timelineContainer.innerHTML = course.steps.map((step, idx) => `
+        <div class="timeline-item">
+          <div class="timeline-node">${idx + 1}</div>
+          <span class="timeline-badge">${step.badge}</span>
+          <h4 class="timeline-place">${step.place}</h4>
+          <p class="timeline-detail">${step.detail}</p>
+        </div>
+      `).join('');
+
+      // 추천 이유 & 비밀 꿀팁
+      document.getElementById('reasonText').textContent = course.reason;
+      document.getElementById('secretTipText').textContent = course.secretTip;
+
+      // 화면 전환
+      switchScreen(resultScreen);
+    }
+
+    /* ----------------------------------------------------
+       11. 결과 제출 및 유효성 검사
+    ---------------------------------------------------- */
+    const submitBtn = document.getElementById('submitBtn');
+    submitBtn.addEventListener('click', () => {
+      // 미입력 항목 체크
+      const missing = [];
+      if (!state.weather) missing.push({ name: '오늘의 날씨', id: 'weatherSection' });
+      if (!state.outfit) missing.push({ name: '오늘의 코디', id: 'outfitSection' });
+      if (!state.vibe) missing.push({ name: '원하는 분위기', id: 'vibeSection' });
+
+      if (missing.length > 0) {
+        playSound('click');
+        // 에러 표시
+        missing.forEach(item => {
+          const el = document.getElementById(item.id);
+          if (el) el.classList.add('has-error');
+        });
+        showToast(`언니가 추천해주려면 '${missing.map(m => m.name).join(', ')}' 항목을 골라줘야 해! 💕`);
+        
+        // 첫 번째 에러 위치로 스크롤
+        const firstErr = document.getElementById(missing[0].id);
+        if (firstErr) {
+          firstErr.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        return;
+      }
+
+      // 조건 매칭 수행
+      const matched = filterAndRankCourses(state.weather, state.temp, state.outfit, state.vibe);
+      state.matchedPool = matched;
+      state.lastRecommendationIndex = 0;
+
+      const bestCourse = matched[0];
+      renderResult(bestCourse);
+    });
+
+    /* ----------------------------------------------------
+       12. '다른 코스 더 추천해줘' (Reroll)
+    ---------------------------------------------------- */
+    const rerollBtn = document.getElementById('rerollBtn');
+    rerollBtn.addEventListener('click', () => {
+      if (!state.matchedPool || state.matchedPool.length === 0) {
+        state.matchedPool = filterAndRankCourses(state.weather, state.temp, state.outfit, state.vibe);
+      }
+      
+      state.lastRecommendationIndex = (state.lastRecommendationIndex + 1) % state.matchedPool.length;
+      const nextCourse = state.matchedPool[state.lastRecommendationIndex];
+      renderResult(nextCourse);
+      showToast('🎲 언니가 다른 비장의 코스도 꺼내봤어!');
+    });
+
+    /* ----------------------------------------------------
+       13. 코스 복사하기 기능 (Clipboard)
+    ---------------------------------------------------- */
+    const copyBtn = document.getElementById('copyBtn');
+    copyBtn.addEventListener('click', () => {
+      const currentCourse = state.matchedPool[state.lastRecommendationIndex] || DATE_COURSES[0];
+      
+      const copyText = `[💅 데이트 장인 언니 Pick - 오늘의 데이트 코스]
+📍 추천 장소: ${currentCourse.title} (${currentCourse.area})
+💡 한 줄 요약: ${currentCourse.oneLiner}
+
+[언니의 데이트 동선]
+${currentCourse.steps.map((s, i) => `${i + 1}차 [${s.badge}]: ${s.place} - ${s.detail}`).join('\n')}
+
+💡 추천 이유: ${currentCourse.reason}
+🍯 언니의 꿀팁: ${currentCourse.secretTip}
+
+#오늘데이트 #데이트코스추천 #데이트장인언니`;
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(copyText).then(() => {
+          playSound('click');
+          showToast('📋 코스가 클립보드에 복사되었어! 카톡에 붙여넣어 봐 💕');
+        }).catch(() => {
+          fallbackCopyText(copyText);
+        });
+      } else {
+        fallbackCopyText(copyText);
+      }
+    });
+
+    function fallbackCopyText(text) {
+      const textArea = document.createElement('textarea');
+      textArea.value = text;
+      document.body.appendChild(textArea);
+      textArea.select();
+      try {
+        document.execCommand('copy');
+        showToast('📋 코스가 복사되었어!');
+      } catch (err) {
+        showToast('복사 권한을 확인해줘!');
+      }
+      document.body.removeChild(textArea);
+    }
+
+    // 초기화 온도 피드백 반영
+    updateTempFeedback(20);
+  </script>
+</body>
+</html>
